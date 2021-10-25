@@ -1,2 +1,3 @@
 # MatrixSolver
-Solve my matrices
+
+solves matrices
