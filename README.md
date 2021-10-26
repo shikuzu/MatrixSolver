@@ -1,6 +1,21 @@
 # MatrixSolver
 
+## Version
+0.0
+
+## Description
 solves matrices
+
+## Disclamer
+This project isn't finished and doesn't work yet (also the makefile is untested)
+
+## TODO
+- implement marix multiplication
+- rework gauss algorithm by instead using the multiplication with (permutation) matrices
+- implement user input
+- implement algorithm to get matrix inverses and eigenvalues
+- Implement vector operations
+- probably lots more
 
 ## Build:
 **Windows**
