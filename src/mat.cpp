@@ -1,6 +1,6 @@
-v/**
+/**
  * @file mat.cpp
- * @author Dominic (*)
+ * @author shikuzu (*)
  * @brief 
  * @version 0.1
  * @date 2021-04-29
@@ -39,12 +39,12 @@ mat::Matrix mat::Matrix::operator*(mat::Matrix mat2)
     if (mat2.getRows() != this->cols)
     {
         std::cerr << "For matrix multiplication the rows of the first matrix"
-                     "have to match the columns of the second matrix" std::endl;
+                     "have to match the columns of the second matrix" << std::endl;
         mat::Matrix empty(0, 0);
         return empty;
     }
 
-    mat::Matrix res(this->cols, mat2.getrows());
+    mat::Matrix res(this->cols, mat2.getRows());
 
     for(uint16_t i = 0; i <this->cols; i++)
     {
@@ -62,6 +62,7 @@ mat::Matrix mat::Matrix::operator*(mat::Matrix mat2)
  * 
  * @param vec2 second vector 
  */
+/*
 std::vector<uint16_t>::operator*(std::vector<uint16_t> vec2)
 {
     if(this->size != vec2.size)
@@ -75,11 +76,11 @@ std::vector<uint16_t>::operator*(std::vector<uint16_t> vec2)
     uint16_t dotProd = 0;
     for(uint i=0; i<this->size; i++)
     {
-        dorProd += this[i]*vec2[i];
+        dotProd += this[i]*vec2[i];
     }
     return dotProd;
 }
-
+*/
 
 /**
  * @brief Add two matrices
