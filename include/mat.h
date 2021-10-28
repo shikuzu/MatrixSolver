@@ -30,11 +30,16 @@ namespace mat
 
         float *operator()(uint16_t row, uint16_t col);
 
+        //Check if two matrices are equal
+        bool operator==(mat::Matrix mat2);
+
+
         //multiply two matrices
         Matrix operator*(mat::Matrix mat2);
 
         //add two matrices
         Matrix operator+(mat::Matrix mat2);
+
 
         //Display the matrix in the console
         void display();

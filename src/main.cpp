@@ -9,13 +9,13 @@ int main(int argc, char *argv[])
     std::string userInput;
     std::cin >> userInput;
 
-    if(!userInput.compare("help"))
+    if (!userInput.compare("help"))
     {
         std::cout << "enter your n X m Matrix in the following format: \n\n"
-        "[[X11, X21, ..., Xn1],[X12, X22, ..., Xn2], ..., [X1m, X2m, ..., Xnm]] \n\n"
-        "and press Enter" << std::endl;
+                     "[[X11, X21, ..., Xn1],[X12, X22, ..., Xn2], ..., [X1m, X2m, ..., Xnm]] \n\n"
+                     "and press Enter"
+                  << std::endl;
     }
-
 
     //Testcode to test the Matrix class
     mat::Matrix MyMatrix(10,10);
@@ -38,5 +38,7 @@ int main(int argc, char *argv[])
     MyMatrix.display();
     MyMatrix = mat::gaussElm(&MyMatrix);
     MyMatrix.display();
+
+
 
 }

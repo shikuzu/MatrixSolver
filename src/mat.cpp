@@ -33,10 +33,31 @@ float *mat::Matrix::operator()(uint16_t row, uint16_t col)
     return &MatData[row * cols + col];
 }
 
+bool mat::Matrix::operator==(mat::Matrix mat2)
+{
+    if((this->cols != mat2.getCols()) || (this->rows != mat2.getRows()))
+    {
+        return false;
+    }
+
+    for (uint16_t i = 0; i < this->rows; i++)
+    {
+        for (uint16_t j = 0; j < this->cols; j++)
+        {
+            if( *(*this)(i,j) != *(mat2(i,j)) )
+            {
+                return false;
+            }
+        }   
+    }
+    
+    return true;
+}
+
 //multiply two matrices
 mat::Matrix mat::Matrix::operator*(mat::Matrix mat2)
 {
-    if (mat2.getRows() != this->cols)
+    if (mat2.getCols() != this->rows)
     {
         std::cerr << "For matrix multiplication the rows of the first matrix"
                      "have to match the columns of the second matrix" << std::endl;
@@ -44,11 +65,19 @@ mat::Matrix mat::Matrix::operator*(mat::Matrix mat2)
         return empty;
     }
 
-    mat::Matrix res(this->cols, mat2.getRows());
+    mat::Matrix res(this->rows, mat2.getCols());
 
-    for(uint16_t i = 0; i <this->cols; i++)
+
+    for(uint16_t i = 0; i < this->rows; i++)
     {
-    
+        for(uint16_t j = 0; j < mat2.getCols();j++)
+        {
+            *res(i,j) = 0; 
+            for(uint16_t k = 0; k < this->cols;k++)
+            {
+                *res(i,j) += (*(*this)(i, k) * *mat2(k,j));
+            }
+        }
     }
 
     return res;
