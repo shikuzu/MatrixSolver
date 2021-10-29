@@ -9,6 +9,8 @@ int main(int argc, char *argv[])
     std::string userInput;
     std::cin >> userInput;
 
+    //TODO: implement input verification
+
     if (!userInput.compare("help"))
     {
         std::cout << "enter your n X m Matrix in the following format: \n\n"
@@ -18,27 +20,23 @@ int main(int argc, char *argv[])
     }
 
     //Testcode to test the Matrix class
-    mat::Matrix MyMatrix(10,10);
+    mat::Matrix coeffMatrix(10,10);
+
+    mat::Matrix solMatrix(10,1);
     
-    for(uint16_t i = 0; i < MyMatrix.getRows(); i++)
+    for(uint16_t i = 0; i < coeffMatrix.getRows(); i++)
     {
-        for(uint16_t j = 0; j < MyMatrix.getCols();j++)
+        for(uint16_t j = 0; j < coeffMatrix.getCols();j++)
         {
-            if(j == 0)
-            {
-                *MyMatrix(i,j) = 0;
-            }
-            else
-            {
-                *MyMatrix(i,j) = rand() % 10;
-            }
+            *coeffMatrix(i,j) = rand() % 10;
         }
+        *solMatrix(i,0) = rand() % 10;
     }
 
-    MyMatrix.display();
-    MyMatrix = mat::gaussElm(&MyMatrix);
-    MyMatrix.display();
+    coeffMatrix.display();
+    solMatrix.display();
 
-
-
+    solMatrix = mat::gaussElm(&coeffMatrix,&solMatrix);
+    
+    solMatrix.display();
 }

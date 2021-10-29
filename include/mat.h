@@ -63,6 +63,7 @@ namespace mat
      * @param orig: pointer to a matrix
      * @return row echelon form of the orig Matrix 
      */
-    Matrix gaussElm(Matrix *orig);
+    Matrix gaussElm(mat::Matrix *coeff, mat::Matrix *sol);
+
 
 } // namespace  mat

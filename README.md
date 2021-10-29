@@ -10,8 +10,8 @@ solves matrices
 This project isn't finished and doesn't work yet (also the makefile is untested)
 
 ## TODO
-- implement marix multiplication
 - rework gauss algorithm by instead using the multiplication with (permutation) matrices
+- implement verification if matrix is solvable
 - implement user input
 - implement algorithm to get matrix inverses and eigenvalues
 - Implement vector operations
